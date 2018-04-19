@@ -45,11 +45,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
             /** get last added user id */
             $userId = (int) $addUser->lastInsertId();
-            
+
             /** set session with user id */
             $_SESSION['user_id'] = $userId;
 
-            $data['redirect'] = "/dashboard.php";
+            $data['redirect'] = ROOT . "/dashboard.php";
         }
         
         /** convert php value into json value */
