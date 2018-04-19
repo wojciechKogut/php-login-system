@@ -1,28 +1,29 @@
 
 <?php
 
+require_once(DOCUMENT_ROOT . ROOT_FOLDER . "/vendor/autoload.php");
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 class DB {
 
-    protected static $con;
+    public static $capsule;
 
-    private function __construct() {
-        try {
-            self::$con = new PDO('mysql:host=localhost;charset=utf8mb4;dbname=login_system', USER, "");
-            self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            self::$con->setAttribute(PDO::ATTR_PERSISTENT, false);
-        }catch(PDOException $e) {
-            die("Database connection failed: ". $e->getMessage());
-        }
+    public static function connection() {
+        self::$capsule = new Capsule;
+
+        self::$capsule->addConnection([
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'login_system',
+            'username'  => 'root',
+            'password'  => '',
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix'    => '',
+        ]);
+
+        self::$capsule->bootEloquent();
     }
-
-    public static function getConnection() {
-        /** if no connection, run it */
-        if(!self::$con) new DB();
-
-        return self::$con;
-    }
-
-
-
-
 }
+
+DB::connection();
