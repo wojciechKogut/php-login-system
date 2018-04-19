@@ -60,7 +60,6 @@ $(document).on("submit",".form-horizontal", function(e) {
         } else {
             window.location.href = data.redirect;
         } 
-        $("#errAjax").hide();
     })
     .fail(function(err) { console.log(err); })
     .always(function() { console.log("always"); });
@@ -69,6 +68,9 @@ $(document).on("submit",".form-horizontal", function(e) {
     return false;
     
 });
+
+
+
 
 
 /** login form */

@@ -7,6 +7,6 @@ session_start();
 session_destroy();
 session_write_close();
 
-redirect(ROOT);
+redirect(ROOT_FOLDER);
 
 
