@@ -1,8 +1,6 @@
 
 <?php
 
-require_once("../inc/config.php");
-
 class DB {
 
     protected static $con;
