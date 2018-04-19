@@ -1,7 +1,7 @@
 
 <?php
 
-require_once("inc/config.php");
+require_once("../inc/config.php");
 
 class DB {
 
@@ -20,6 +20,8 @@ class DB {
     public static function getConnection() {
         /** if no connection, run it */
         if(!self::$con) new DB();
+
+        return self::$con;
     }
 
 
