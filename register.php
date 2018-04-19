@@ -1,3 +1,14 @@
+<?php 
+	define("__CONFIG__", true);
+	require_once("inc/config.php");
+	require_once("inc/functions.php");
+
+	if(checkIfUserLoggedIn()) {
+		redirect(ROOT . "/dashboard.php");
+	}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

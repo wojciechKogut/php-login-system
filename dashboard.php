@@ -6,8 +6,9 @@ define("__CONFIG__", true);
 require_once("inc/config.php");
 require_once("inc/functions.php");
 
-require_once("inc/classes/DB.php");
-DB::getConnection();
+if(!checkIfUserLoggedIn()) {
+    redirect(ROOT);
+}
 
 
 ?>
@@ -42,17 +43,13 @@ DB::getConnection();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Lorem ipsum</a>
+          <a class="navbar-brand" href="<?php echo ROOT ?>/dashboard.php">Dashboard</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="register.php">Registration</a></li>
-        <?php  if(checkIfUserLoggedIn()) : ?>
-            <li><a href="<?php echo ROOT ?>/logout.php">Logout</a></li>
-            <li><a href="<?php echo ROOT ?>/dashboard.php">Dashboard</a></li> 
-        <?php endif; ?>
+            <li><a href="#">Morbi mattis</a></li>
+            <li><a href="#">sodales finibus</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -62,7 +59,7 @@ DB::getConnection();
     text-align: center;">
 
       <div class="starter-template">
-        <h1>Lorem ipsum dolor sit amet, consectetur</h1>
+        <h1>Dashboard</h1>
         <p class="lead">Morbi mattis nisi et risus sodales finibus. Morbi aliquet, massa sit amet auctor finibus. Morbi nibh odio, euismod nec ipsum non, dignissim varius libero. Vivamus varius magna sit amet velit faucibus congue.<br> Donec auctor, dolor ac rhoncus rhoncus, leo est ornare risus, sed tempor tortor mauris vitae tortor..</p>
       </div>
 

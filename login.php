@@ -3,6 +3,11 @@ define("__CONFIG__", true);
 
 /* require config */
 require_once("inc/config.php");
+require_once("inc/functions.php");
+
+if(checkIfUserLoggedIn()) {
+    redirect(ROOT . "/dashboard.php");
+}
 
 ?>
 
@@ -23,7 +28,7 @@ require_once("inc/config.php");
             <div class="wrapper">
                 <div class="formWrapper" style="">
                     <form action="" method="post" name="Login_Form" class="form-signin">       
-                        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+                        <h3 class="form-signin-heading">Sign In</h3>
                         <hr class="colorgraph"><br>
                         
                         <input type="email" class="form-control" name="email" placeholder="Email"  autofocus="autofocus" />
