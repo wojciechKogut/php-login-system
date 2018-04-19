@@ -1,24 +1,16 @@
-<?php
-
-define("__CONFIG__", true);
-
-/* require config */
-require_once("config.php");
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head> 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+		<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"> -->
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 		<!-- Website CSS style -->
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 		<!-- Website Font style -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -33,10 +25,6 @@ require_once("config.php");
 		<div class="container">
 			<div class="row main">
 				<div class="panel-heading">
-	               <!-- <div class="panel-title text-center">
-	               		<h1 class="title">Company Name</h1>
-	               		<hr />
-	               	</div> -->
 	            </div> 
 				<div class="main-login main-center">
 					<form class="form-horizontal" method="post" action="#">
@@ -48,6 +36,7 @@ require_once("config.php");
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
 								</div>
+								<div class="alert alert-danger" id="errName" style="display: none"></div>
 							</div>
 						</div>
 
@@ -56,9 +45,10 @@ require_once("config.php");
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+									<input type="email" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
 								</div>
 							</div>
+							<div class="alert alert-danger" id="errEmail" style="display: none"></div>
 						</div>
 
 						<div class="form-group">
@@ -69,6 +59,7 @@ require_once("config.php");
 									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
 								</div>
 							</div>
+							<div class="alert alert-danger" id="errUsername" style="display: none"></div>
 						</div>
 
 						<div class="form-group">
@@ -79,6 +70,7 @@ require_once("config.php");
 									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
 								</div>
 							</div>
+							<div class="alert alert-danger" id="errPassword" style="display: none"></div>
 						</div>
 
 						<div class="form-group">
@@ -89,10 +81,13 @@ require_once("config.php");
 									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
 								</div>
 							</div>
+							<div class="alert alert-danger" id="errConfirm" style="display: none"></div>
 						</div>
 
+						<div class="alert alert-danger" id="errAjax" style="display: none"></div>
+
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
 						</div>
 						<div class="login-register">
 				            <a href="login.php">Login</a>
@@ -102,7 +97,8 @@ require_once("config.php");
 			</div>
 		</div>
 
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<!-- <script type="text/javascript" src="assets/js/bootstrap.js"></script> -->
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
 
