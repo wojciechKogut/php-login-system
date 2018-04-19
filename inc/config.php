@@ -6,6 +6,10 @@
 
     define("USER", "root");
 
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+
 
 
 ?>
