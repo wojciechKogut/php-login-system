@@ -6,7 +6,7 @@ require_once("inc/config.php");
 require_once("inc/functions.php");
 
 if(checkIfUserLoggedIn()) {
-    redirect(ROOT . "/dashboard.php");
+    redirect(ROOT_FOLDER . "/dashboard.php");
 }
 
 ?>

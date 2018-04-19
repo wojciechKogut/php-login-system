@@ -4,7 +4,7 @@
 	require_once("inc/functions.php");
 
 	if(checkIfUserLoggedIn()) {
-		redirect(ROOT . "/dashboard.php");
+		redirect(ROOT_FOLDER . "/dashboard.php");
 	}
 
 ?>

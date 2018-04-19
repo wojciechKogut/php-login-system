@@ -6,8 +6,6 @@ define("__CONFIG__", true);
 require_once("inc/config.php");
 require_once("inc/functions.php");
 
-require_once("inc/classes/DB.php");
-DB::getConnection();
 
 
 ?>
@@ -47,11 +45,11 @@ DB::getConnection();
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="register.php">Registration</a></li>
+            <li><a href="<?php echo ROOT_FOLDER ?>/login.php">Login</a></li>
+            <li><a href="<?php echo ROOT_FOLDER ?>/register.php">Registration</a></li>
         <?php  if(checkIfUserLoggedIn()) : ?>
-            <li><a href="<?php echo ROOT ?>/logout.php">Logout</a></li>
-            <li><a href="<?php echo ROOT ?>/dashboard.php">Dashboard</a></li> 
+            <li><a href="<?php echo ROOT_FOLDER ?>/logout.php">Logout</a></li>
+            <li><a href="<?php echo ROOT_FOLDER ?>/dashboard.php">Dashboard</a></li> 
         <?php endif; ?>
           </ul>
         </div><!--/.nav-collapse -->

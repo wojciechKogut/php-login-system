@@ -5,9 +5,12 @@ define("__CONFIG__", true);
 /* require config */
 require_once("inc/config.php");
 require_once("inc/functions.php");
+require_once("inc/classes/User.php");
+
+$user = User::findById($_SESSION['user_id']);
 
 if(!checkIfUserLoggedIn()) {
-    redirect(ROOT);
+    redirect(ROOT_FOLDER);
 }
 
 
@@ -43,7 +46,7 @@ if(!checkIfUserLoggedIn()) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo ROOT ?>/dashboard.php">Dashboard</a>
+          <a class="navbar-brand" href="<?php echo ROOT_FOLDER ?>/dashboard.php">Dashboard</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -60,7 +63,7 @@ if(!checkIfUserLoggedIn()) {
 
       <div class="starter-template">
         <h1>Dashboard</h1>
-        <p class="lead">Morbi mattis nisi et risus sodales finibus. Morbi aliquet, massa sit amet auctor finibus. Morbi nibh odio, euismod nec ipsum non, dignissim varius libero. Vivamus varius magna sit amet velit faucibus congue.<br> Donec auctor, dolor ac rhoncus rhoncus, leo est ornare risus, sed tempor tortor mauris vitae tortor..</p>
+        <p class="lead"> "<?php echo $user->username; ?>" was successful logged in. Welcome to your dashboard, manage your conten on your own<br> Date: <?php echo date('Y:m:d') ?></p>
       </div>
 
     </div><!-- /.container -->
