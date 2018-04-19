@@ -33,7 +33,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
         if(password_verify($password,$results['password'])) {
             $userId = $results['user_id'];
-            $data['redirect'] = "/dashboard.php";
+            $_SESSION['user_id'] = $userId;
+            $data['redirect'] = ROOT . "/dashboard.php";
         }else {
 
             $data["err"] = "Invalid credential. Try again";
