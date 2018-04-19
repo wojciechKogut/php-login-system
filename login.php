@@ -4,7 +4,6 @@ define("__CONFIG__", true);
 /* require config */
 require_once("inc/config.php");
 
-require_once("inc/classes/DB.php");
 ?>
 
 <!DOCTYPE html>
